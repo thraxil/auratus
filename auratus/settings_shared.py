@@ -53,12 +53,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'auratus.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    # Put application templates before these fallback ones:
     "/var/www/auratus/templates/",
-    os.path.join(os.path.dirname(__file__),"templates"),
+    os.path.join(os.path.dirname(__file__), "templates"),
 )
 
 INSTALLED_APPS = (
@@ -93,7 +89,7 @@ STATSD_PATCHES = ['django_statsd.patches.db', ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 if 'test' in sys.argv:
-     DATABASE_ENGINE = 'sqlite3'
+    DATABASE_ENGINE = 'sqlite3'
 SOUTH_TESTS_MIGRATE = False
 
 THUMBNAIL_SUBDIR = "thumbs"
@@ -112,11 +108,14 @@ COMPRESS_ROOT = "media/"
 
 # WIND settings
 
-AUTHENTICATION_BACKENDS = ('djangowind.auth.WindAuthBackend','django.contrib.auth.backends.ModelBackend',)
+AUTHENTICATION_BACKENDS = ('djangowind.auth.WindAuthBackend',
+                           'django.contrib.auth.backends.ModelBackend',)
 WIND_BASE = "https://wind.columbia.edu/"
 WIND_SERVICE = "cnmtl_full_np"
 WIND_PROFILE_HANDLERS = ['djangowind.auth.CDAPProfileHandler']
-WIND_AFFIL_HANDLERS = ['djangowind.auth.AffilGroupMapper','djangowind.auth.StaffMapper','djangowind.auth.SuperuserMapper']
+WIND_AFFIL_HANDLERS = ['djangowind.auth.AffilGroupMapper',
+                       'djangowind.auth.StaffMapper',
+                       'djangowind.auth.SuperuserMapper']
 WIND_STAFF_MAPPER_GROUPS = []
 WIND_SUPERUSER_MAPPER_GROUPS = ['anp8']
 

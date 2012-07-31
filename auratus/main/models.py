@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 
+
 class Photo(models.Model):
     title = models.CharField(max_length=256, default="no title")
     uploaded = models.DateTimeField(auto_now_add=False, default=datetime.now)
@@ -14,7 +15,12 @@ class Photo(models.Model):
     extension = models.CharField(max_length=256, default="jpg")
 
     class Meta:
-        ordering = ['-uploaded',]
+        ordering = ['-uploaded', ]
+
+    def add_tag(self, tag):
+        t, created = Tag.objects.get_or_create(name=tag)
+        pt, created = PhotoTag.objects.get_or_create(photo=self, tag=t)
+
 
 class Album(models.Model):
     title = models.CharField(max_length=256, default="no title")
@@ -25,6 +31,7 @@ class Album(models.Model):
     class Meta:
         ordering = ['-created']
 
+
 class AlbumPhoto(models.Model):
     album = models.ForeignKey(Album)
     photo = models.ForeignKey(Photo)
@@ -32,9 +39,11 @@ class AlbumPhoto(models.Model):
     class Meta:
         order_with_respect_to = 'album'
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=256, default="")
-    
+
+
 class PhotoTag(models.Model):
     photo = models.ForeignKey(Photo)
     tag = models.ForeignKey(Tag)
