@@ -1,12 +1,11 @@
 from django.db import models
-from datetime import datetime
 
 
 class Photo(models.Model):
     title = models.CharField(max_length=256, default="no title")
-    uploaded = models.DateTimeField(auto_now_add=False, default=datetime.now)
+    uploaded = models.DateTimeField(auto_now_add=True)
     taken = models.DateTimeField(null=True)
-    modified = models.DateTimeField(auto_now=False, default=datetime.now)
+    modified = models.DateTimeField(auto_now=True)
     description = models.TextField(default="", blank=True, null=True)
     views = models.IntegerField(default=0)
 
@@ -24,8 +23,8 @@ class Photo(models.Model):
 
 class Album(models.Model):
     title = models.CharField(max_length=256, default="no title")
-    created = models.DateTimeField(auto_now_add=False, default=datetime.now)
-    modified = models.DateTimeField(auto_now=False, default=datetime.now)
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
     description = models.TextField(default="")
 
     class Meta:
