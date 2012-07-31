@@ -1,10 +1,20 @@
 from annoying.decorators import render_to
 from auratus.main.models import Photo, Album, Tag
 from django.shortcuts import get_object_or_404
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 @render_to('main/index.html')
-def index(request):
-    return dict(photos=Photo.objects.all()[:50])
+def index(request, page=1):
+    photo_list = Photo.objects.all()
+    p = Paginator(photo_list, 50)
+    try:
+        photos = p.page(page)
+    except PageNotAnInteger:
+        photos = p.page(1)
+    except EmptyPage:
+        photos = p.page(p.num_pages)
+    return dict(photos=photos.object_list,
+                paginator=photos)
 
 
 @render_to('main/albums.html')
