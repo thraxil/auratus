@@ -71,9 +71,9 @@
         <div class="container">
           <ul class="nav">
           {% block primarynavtabs %}
-            <li class="active"><a href="/">Home</a></li>
-						<li><a href="/album/">Albums</a></li>
-						<li><a href="/tag/">Tags</a></li>
+            <li class="active"><a href="{% url index %}">Home</a></li>
+						<li><a href="{% url album-index %}">Albums</a></li>
+						<li><a href="{% url tag-index %}">Tags</a></li>
           {% endblock %}
 					{% block primarynavtabsextra %}{% endblock %}
           </ul>

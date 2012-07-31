@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include
+from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic.simple import direct_to_template
@@ -24,9 +24,15 @@ if hasattr(settings, 'WIND_BASE'):
 urlpatterns = patterns('',
                        auth_urls,
                        logout_page,
-                       (r'^$', 'auratus.main.views.index'),
-                       (r'^album/$', 'auratus.main.views.albums'),
-                       (r'^tag/$', 'auratus.main.views.tags'),
+                       url(r'^$',
+                           view='auratus.main.views.index',
+                           name='index'),
+                       url(r'^album/$',
+                           view='auratus.main.views.albums',
+                           name='album-index'),
+                       url(r'^tag/$',
+                           view='auratus.main.views.tags',
+                           name='tag-index'),
                        (r'^admin/', include(admin.site.urls)),
                        (r'^stats/', direct_to_template,
                         {'template': 'stats.html'}),
