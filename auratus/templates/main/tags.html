@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Tags</h2>
 
-<p>{% for tag in tags %}{{tag.name}}
+<p>{% for tag in tags %}<a href="{% url tag tag.name %}">{{tag.name}}</a>
 {% endfor %}
 </p>
 {% endblock %}

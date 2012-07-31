@@ -30,7 +30,7 @@
 		<h3>Tags</h3>
 		<ul>
 			{% for pt in photo.phototag_set.all %}
-			<ul>{{pt.tag.name}}</ul>
+			<ul><a href="{% url tag pt.tag.name %}">{{pt.tag.name}}</a></ul>
 			{% endfor %}
 		</ul>
 		{% endif %}
