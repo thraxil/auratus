@@ -121,3 +121,5 @@ WIND_SUPERUSER_MAPPER_GROUPS = ['anp8']
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True
+
+RETICULUM_BASE = "http://behemoth.ccnmtl.columbia.edu:14001/"
