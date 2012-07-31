@@ -21,7 +21,7 @@
 		<h3>Albums</h3>
 		<ul>
 			{% for ap in photo.albumphoto_set.all %}
-			<li>{{ap.album.title}}</li>
+			<li><a href="{% url album ap.album.id %}">{{ap.album.title}}</a></li>
 			{% endfor %}
 		</ul>
 		{% endif %}

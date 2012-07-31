@@ -21,3 +21,9 @@ def tags(request):
 def photo(request, id):
     p = get_object_or_404(Photo, pk=id)
     return dict(photo=p)
+
+
+@render_to('main/album.html')
+def album(request, id):
+    a = get_object_or_404(Album, pk=id)
+    return dict(album=a)
