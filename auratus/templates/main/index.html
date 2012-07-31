@@ -5,7 +5,7 @@
 <ul class="thumbnails">
 	{% for photo in photos %}
   <li class="span3">
-    <a href="#" class="thumbnail">
+    <a href="{% url photo photo.id %}" class="thumbnail">
 			<img src="http://behemoth.ccnmtl.columbia.edu:14001/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
 					 width="350" alt="{{photo.title}}"/>
     </a>
