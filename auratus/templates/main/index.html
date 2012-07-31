@@ -1,22 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Auratus</h1>
-
-<h2>Albums</h2>
-
-<ul>
-	{% for album in albums %}
-	<li>{{album.title}}</li>
-	{% endfor %}
-</ul>
-
-<h2>Tags</h2>
-
-<p>{% for tag in tags %}{{tag.name}}
-{% endfor %}
-</p>
-
 <h2>Images</h2>
 <ul class="thumbnails">
 	{% for photo in photos %}
