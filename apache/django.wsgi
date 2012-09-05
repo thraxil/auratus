@@ -4,10 +4,8 @@ import os, sys, site
 site.addsitedir('/var/www/auratus/auratus/ve/lib/python2.6/site-packages')
 
 # paths we might need to pick up the project's settings
-sys.path.append('/var/www/')
-sys.path.append('/var/www/auratus/')
 sys.path.append('/var/www/auratus/auratus/')
-sys.path.append('/var/www/auratus/auratus/auratus/')
+
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'auratus.settings_production'
 
