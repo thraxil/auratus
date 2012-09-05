@@ -2,7 +2,7 @@
 from settings_shared import *
 
 TEMPLATE_DIRS = (
-    "/var/www/auratus/auratus/templates",
+    "/var/www/auratus/auratus/auratus/templates",
 )
 
 MEDIA_ROOT = '/var/www/auratus/uploads/'

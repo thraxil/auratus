@@ -66,7 +66,6 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'staticmedia',
     'django.contrib.admin',
-    'typogrify',
     'south',
     'django_nose',
     'compressor',
