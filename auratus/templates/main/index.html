@@ -20,18 +20,19 @@
 {% endif %}
 
 <h2>Images</h2>
-<ul class="thumbnails">
+
 	{% for photo in photos %}
-  <li class="span3">
+<div class="row-fluid">
+  <div class="span8">
     <a href="{% url photo photo.id %}" class="thumbnail">
-			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
-					 width="350" alt="{{photo.title}}"/>
+			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/600w/{{photo.id}}.{{photo.extension}}"
+					 alt="{{photo.title}}"/>
     </a>
-		<h5>{{photo.title}}</h5>
-  </li>
+  </div>
+</div>
 
 
 {% endfor %}
-</ul>
+
 
 {% endblock %}
