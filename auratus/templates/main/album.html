@@ -13,7 +13,7 @@
 	{% with ap.photo as photo %}
   <li class="span3">
     <a href="{% url photo photo.id %}" class="thumbnail">
-			<img src="http://behemoth.ccnmtl.columbia.edu:14001/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
+			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
 					 width="350" alt="{{photo.title}}"/>
     </a>
 		<h5>{{photo.title}}</h5>

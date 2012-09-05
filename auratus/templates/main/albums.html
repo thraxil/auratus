@@ -10,7 +10,7 @@
 		<div class="thumbnail">
 		<a href="{% url album album.id %}">
 			{% with album.albumphoto_set.all.0.photo as photo %}
-			<img src="http://behemoth.ccnmtl.columbia.edu:14001/image/{{photo.reticulum_key}}/600s/{{photo.id}}.{{photo.extension}}"
+			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/600s/{{photo.id}}.{{photo.extension}}"
 					 alt="{{album.title}}"/>
 			{% endwith %}
 		</a>
