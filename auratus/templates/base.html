@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>auratus: {% block title %}{% endblock %}</title>
+	<title>Auratus: {% block title %}{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="auratus">
   <meta name="author" content="CCNMTL">
@@ -32,7 +32,9 @@
     <div class="navbar-inner">
       <div class="container">
         <ul class="nav">
-          <li><a class="brand" href="/">auratus</a></li>
+          <li><a class="brand" href="{% url index %}">Auratus</a></li>
+					<li><a href="{% url album-index %}">Albums</a></li>
+					<li><a href="{% url tag-index %}">Tags</a></li>
           {% block topnavbarleftitems %}{% endblock %}
         </ul>
 
@@ -40,7 +42,7 @@
           {% block topnavbarrightitems %}{% endblock %}
 {% block usernav %}
           {% if request.user.is_anonymous %}
-          <a href="/accounts/login/?next=/" class="btn btn-success">login</a>
+          <a href="/accounts/login/?next=/" class="btn">login</a>
           {% else %}
           logged in as {{request.user.first_name}} {{request.user.last_name}}
           <a href="/logout/" class="btn btn-inverse">logout</a>
@@ -56,38 +58,8 @@
   <div class="container" id="outer-container">
 {% block masthead %}
     <header class="subhead hidden-phone" id="masthead">
-      <h1><a href="./" title="auratus">auratus</a></h1>
-      <h4 id="logo-ccnmtl">
-        <a href="http://ccnmtl.columbia.edu" target="_blank"
-          title="Columbia Center for New Media Teaching and Learning">
-          <span>Produced by the Columbia Center for New Media Teaching
-          and Learning</span>
-        </a>
-      </h4>
+      <h1><a href="{% url index %}" title="auratus">auratus</a></h1>
     </header>
-
-{% block primarynav %}
-    <div class="navbar" id="primarynav">
-      <div class="navbar-inner">
-        <div class="container">
-          <ul class="nav">
-          {% block primarynavtabs %}
-            <li class="active"><a href="{% url index %}">Home</a></li>
-						<li><a href="{% url album-index %}">Albums</a></li>
-						<li><a href="{% url tag-index %}">Tags</a></li>
-          {% endblock %}
-					{% block primarynavtabsextra %}{% endblock %}
-          </ul>
-
-          <ul class="nav pull-right">
-            {% block primarynavrightextra %}{% endblock %}
-						<li><a href="/search/">Search</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-{% endblock %}
-
 {% endblock %}
 
     <div class="container-fluid" id="content">
@@ -103,6 +75,7 @@
 
 {% block footer %}
   <footer class="footer navbar-fixed-bottom hidden-phone">
+		All Content CC Public Domain.
   </footer>
 {% endblock %}
 

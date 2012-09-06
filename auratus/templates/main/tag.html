@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{tag.name}}</h1>
-
-<h2>Images</h2>
+<ul class="breadcrumb">
+  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
+  <li><a href="{% url tag-index %}">Tags</a> <span class="divider">/</span></li>
+  <li class="active">{{tag.name}}</li>
+</ul>
 
 <div id="thumbnails">
 	{% for pt in tag.phototag_set.all %}

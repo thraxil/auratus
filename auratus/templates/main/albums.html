@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Albums</h2>
 
+<ul class="breadcrumb">
+  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
+  <li class="active">Albums</li>
+</ul>
 
 	{% for album in albums %}
 <div class="row-fluid">

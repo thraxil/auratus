@@ -3,6 +3,18 @@
 {% block content %}
 
 {% if paginator %}
+
+{% ifequal paginator.number 1 %}
+<div class="hero-unit">
+	<h1>Auratus</h1>
+
+	<p>Welcome to my image gallery. Browse 
+<a href="{% url album-index %}">by Album</a>,
+<a href="{% url tag-index %}">by Tag</a>, search the
+	gallery [coming soon], or just scroll down and page through. </p>
+</div>
+{% endifequal %}
+
 <div class="pagination pagination-centered">
 	<ul>
 		<li><a href="{% url page 1 %}">First</a></li>

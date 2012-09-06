@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Tags</h2>
+<ul class="breadcrumb">
+  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
+  <li class="active">Tags</li>
+</ul>
 
-<p>{% for tag in tags %}<a href="{% url tag tag.name %}">{{tag.name}}</a>
+<p>{% for tag in tags %}<a href="{% url tag tag.name %}" class="label">{{tag.name}}</a>
 {% endfor %}
 </p>
 {% endblock %}

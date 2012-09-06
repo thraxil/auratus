@@ -2,12 +2,18 @@
 {% load markup %}
 
 {% block content %}
-<h1>{{album.title}}</h1>
+
+<ul class="breadcrumb">
+  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
+  <li><a href="{% url album-index %}">Albums</a> <span class="divider">/</span></li>
+	<li class="active">{{album.title}}</li>
+</ul>
+
+
 {% if album.description %}
 {{album.description|markdown}}
 {% endif %}
 
-<h2>Images</h2>
 <div id="thumbnails">
 	{% for ap in album.albumphoto_set.all %}
 	{% with ap.photo as photo %}
