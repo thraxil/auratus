@@ -52,3 +52,9 @@ body > .container {
 #primarynav a:hover {
   color: blue;
 }
+
+.album-thumbnail {
+		width: 350px;
+  margin: 10px;
+  float: left;
+}
