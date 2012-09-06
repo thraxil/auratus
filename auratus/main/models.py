@@ -42,6 +42,9 @@ class AlbumPhoto(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=256, default="")
 
+    class Meta:
+        ordering = ["name",]
+
 
 class PhotoTag(models.Model):
     photo = models.ForeignKey(Photo)
