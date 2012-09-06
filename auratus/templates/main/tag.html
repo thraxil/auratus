@@ -4,18 +4,29 @@
 <h1>{{tag.name}}</h1>
 
 <h2>Images</h2>
-<ul class="thumbnails">
+
+<div id="thumbnails">
 	{% for pt in tag.phototag_set.all %}
 	{% with pt.photo as photo %}
-  <li class="span3">
-    <a href="{% url photo photo.id %}" class="thumbnail">
-			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/350s/{{photo.id}}.{{photo.extension}}"
+  <div class="album-thumbnail">
+    <a href="{% url photo photo.id %}">
+			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
 					 alt="{{photo.title}}"/>
     </a>
-		<h5>{{photo.title}}</h5>
-  </li>
-	{% endwith %}
+  </div>
+   {% endwith %}
 {% endfor %}
-</ul>
+</div>
+
+<script>
+var $container = $('#thumbnails');
+$container.imagesLoaded(function(){
+  $container.masonry({
+    itemSelector : '.album-thumbnail',
+    columnWidth : 370
+  });
+});
+</script>
+
 
 {% endblock %}
