@@ -39,6 +39,12 @@ def album(request, id):
     return dict(album=a)
 
 
+@render_to('main/album_slideshow.html')
+def album_slideshow(request, id):
+    a = get_object_or_404(Album, pk=id)
+    return dict(album=a)
+
+
 @render_to('main/tag.html')
 def tag(request, tag):
     t = get_object_or_404(Tag, name=tag)

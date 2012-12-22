@@ -16,6 +16,8 @@
 {{album.description|markdown}}
 {% endif %}
 
+<a href="{% url album-slideshow album.id %}">slideshow</a>
+
 <div id="thumbnails">
 	{% for ap in album.albumphoto_set.all %}
 	{% with ap.photo as photo %}
