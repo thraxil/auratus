@@ -32,6 +32,10 @@ if 'test' in sys.argv:
             }
         }
 
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=auratus',
+]
 
 USE_TZ = True
 TIME_ZONE = 'America/New_York'
