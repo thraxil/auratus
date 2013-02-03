@@ -3,6 +3,7 @@ from auratus.main.models import Photo, Album, Tag
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
+
 @render_to('main/index.html')
 def index(request, page=1):
     photo_list = Photo.objects.all()

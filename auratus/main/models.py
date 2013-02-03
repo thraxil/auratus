@@ -43,7 +43,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=256, default="")
 
     class Meta:
-        ordering = ["name",]
+        ordering = ["name", ]
 
 
 class PhotoTag(models.Model):
