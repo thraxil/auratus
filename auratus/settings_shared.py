@@ -90,6 +90,7 @@ INSTALLED_APPS = (
     'bootstrapform',
     'lettuce.django',
     'auratus.main',
+    'gunicorn',
 )
 
 LETTUCE_APPS = (
