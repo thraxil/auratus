@@ -76,7 +76,7 @@ def add_photo(request, id):
             reticulum_key=loads(r.text)["hash"],
             extension=extension,
             description=request.POST.get('description', ''))
-        ap = AlbumPhoto.objects.create(
+        AlbumPhoto.objects.create(
             album=a,
             photo=p)
         return HttpResponseRedirect(reverse('album', args=(a.id,)))
