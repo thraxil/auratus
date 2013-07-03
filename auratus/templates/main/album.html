@@ -11,6 +11,16 @@
 	<li class="active">{{album.title}}</li>
 </ul>
 
+{% if not request.user.is_anonymous %}
+<form action="add_photo/" method="post" enctype="multipart/form-data">
+<input type="file" name="image" /><br />
+<input type="text" name="title" placeholder="title" /><br />
+<textarea rows="5" cols="50"></textarea><br />
+<input type="submit" value="add image" />
+</form>
+{% endif %}
+
+
 
 {% if album.description %}
 {{album.description|markdown}}

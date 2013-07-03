@@ -1,9 +1,12 @@
 from annoying.decorators import render_to
-from auratus.main.models import Photo, Album, Tag
+from auratus.main.models import Photo, Album, Tag, AlbumPhoto
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.utils.simplejson import loads
+import os
+import requests
 
 
 @render_to('main/index.html')
@@ -50,6 +53,35 @@ def add_album(request):
             description=request.POST.get('description', ''))
         return HttpResponseRedirect(reverse('album', args=(a.id,)))
     return dict()
+
+
+def add_photo(request, id):
+    a = get_object_or_404(Album, pk=id)
+    if request.FILES.get('image', None):
+        original_filename = request.FILES['image'].name
+        extension = os.path.splitext(original_filename)[1].lower()
+        print original_filename
+        if extension == ".jpeg":
+            extension = ".jpg"
+        if extension not in [".jpg", ".png", ".gif"]:
+            return HttpResponse("unsupported image format")
+        title = request.POST.get('title', original_filename)
+        files = {'image':
+                     ("image%s" % extension,
+                      request.FILES['image'])
+                 }
+        r = requests.post("http://reticulum.thraxil.org/", files=files)
+        p = Photo.objects.create(
+            title=title,
+            reticulum_key=loads(r.text)["hash"],
+            extension=extension,
+            description=request.POST.get('description', ''))
+        ap = AlbumPhoto.objects.create(
+            album=a,
+            photo=p)
+        return HttpResponseRedirect(reverse('album', args=(a.id,)))
+    else:
+        return HttpResponse("no image")
 
 
 @render_to('main/album_slideshow.html')
