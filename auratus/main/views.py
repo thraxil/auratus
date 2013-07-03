@@ -1,5 +1,7 @@
 from annoying.decorators import render_to
 from auratus.main.models import Photo, Album, Tag
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -38,6 +40,16 @@ def photo(request, id):
 def album(request, id):
     a = get_object_or_404(Album, pk=id)
     return dict(album=a)
+
+
+@render_to('main/add_album.html')
+def add_album(request):
+    if request.method == 'POST':
+        a = Album.objects.create(
+            title=request.POST.get('title', 'no title'),
+            description=request.POST.get('description', ''))
+        return HttpResponseRedirect(reverse('album', args=(a.id,)))
+    return dict()
 
 
 @render_to('main/album_slideshow.html')
