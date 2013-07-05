@@ -1,6 +1,7 @@
 from fabric.api import run, sudo, local, cd, env
 
 env.hosts = ['oolong.thraxil.org', 'maru.thraxil.org']
+env.user = 'anders'
 
 def restart_gunicorn():
     sudo("restart auratus")
