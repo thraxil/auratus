@@ -129,7 +129,7 @@ AUTHENTICATION_BACKENDS = ('djangowind.auth.WindAuthBackend',
                            'django.contrib.auth.backends.ModelBackend',)
 WIND_BASE = "https://wind.columbia.edu/"
 WIND_SERVICE = "cnmtl_full_np"
-WIND_PROFILE_HANDLERS = ['djangowind.auth.CDAPProfileHandler']
+WIND_PROFILE_HANDLERS = []
 WIND_AFFIL_HANDLERS = ['djangowind.auth.AffilGroupMapper',
                        'djangowind.auth.StaffMapper',
                        'djangowind.auth.SuperuserMapper']
