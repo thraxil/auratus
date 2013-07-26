@@ -1,5 +1,6 @@
 from annoying.decorators import render_to
 from auratus.main.models import Photo, Album, Tag, AlbumPhoto
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
@@ -45,6 +46,7 @@ def album(request, id):
     return dict(album=a)
 
 
+@login_required
 @render_to('main/add_album.html')
 def add_album(request):
     if request.method == 'POST':
