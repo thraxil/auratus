@@ -41,10 +41,9 @@ class Command(BaseCommand):
                     continue
 
                 fullpath = os.path.join(directory, image_filename)
-                files = {'image':
-                             (image_filename,
-                              open(fullpath, 'rb'))
-                         }
+                files = {
+                    'image': (image_filename, open(fullpath, 'rb'))
+                }
                 r = requests.post(RETICULUM_BASE, files=files)
                 rhash = loads(r.text)["hash"]
 
@@ -61,7 +60,7 @@ class Command(BaseCommand):
                     views=int(json['views']),
                     reticulum_key=rhash,
                     extension='jpg',
-                    )
+                )
                 for tag in json['tags']:
                     p.add_tag(tag)
                 idmap[flickrid] = p
@@ -76,7 +75,7 @@ class Command(BaseCommand):
                         float(int(json['date_create']))),
                     modified=datetime.utcfromtimestamp(
                         float(int(json['date_update']))),
-                    )
+                )
                 for flickrid in json['images']:
                     p = idmap[flickrid]
                     AlbumPhoto.objects.get_or_create(album=a, photo=p)

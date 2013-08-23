@@ -68,10 +68,9 @@ def add_photo(request, id):
         if extension not in [".jpg", ".png", ".gif"]:
             return HttpResponse("unsupported image format")
         title = request.POST.get('title', original_filename)
-        files = {'image':
-                     ("image%s" % extension,
-                      request.FILES['image'])
-                 }
+        files = {
+            'image': ("image%s" % extension, request.FILES['image'])
+        }
         r = requests.post("http://reticulum.thraxil.org/", files=files)
         p = Photo.objects.create(
             title=title,
