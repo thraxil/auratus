@@ -10,24 +10,24 @@
 	<h1>Auratus</h1>
 
 	<p>Welcome to my image gallery. Browse 
-<a href="{% url album-index %}">by Album</a>,
-<a href="{% url tag-index %}">by Tag</a>, search the
+<a href="{% url 'album-index' %}">by Album</a>,
+<a href="{% url 'tag-index' %}">by Tag</a>, search the
 	gallery [coming soon], or just scroll down and page through. </p>
 </div>
 {% endifequal %}
 
 <div class="pagination pagination-centered">
 	<ul>
-		<li><a href="{% url page 1 %}">First</a></li>
+		<li><a href="{% url 'page' 1 %}">First</a></li>
 {% if paginator.has_previous %}
-		<li><a href="{% url page paginator.previous_page_number %}">Previous</a></li>
+		<li><a href="{% url 'page' paginator.previous_page_number %}">Previous</a></li>
 {% endif %}
 		<li class="active"><a href="">{{paginator.number}}</a></li>
 
 {% if paginator.has_next %}
-		<li><a href="{% url page paginator.next_page_number %}">Next</a></li>
+		<li><a href="{% url 'page' paginator.next_page_number %}">Next</a></li>
 {% endif %}
-		<li><a href="{% url page paginator.paginator.num_pages %}">Last</a></li>
+		<li><a href="{% url 'page' paginator.paginator.num_pages %}">Last</a></li>
 	</ul>
 </div>
 {% endif %}
@@ -35,7 +35,7 @@
 <div id="thumbnails">
 	{% for photo in photos %}
   <div class="album-thumbnail">
-    <a href="{% url photo photo.id %}">
+    <a href="{% url 'photo' photo.id %}">
 			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
 					 alt="{{photo.title}}"/>
     </a>
@@ -48,16 +48,16 @@
 <br style="clear: both"/>
 <div class="pagination pagination-centered">
 	<ul>
-		<li><a href="{% url page 1 %}">First</a></li>
+		<li><a href="{% url 'page' 1 %}">First</a></li>
 {% if paginator.has_previous %}
-		<li><a href="{% url page paginator.previous_page_number %}">Previous</a></li>
+		<li><a href="{% url 'page' paginator.previous_page_number %}">Previous</a></li>
 {% endif %}
 		<li class="active"><a href="">{{paginator.number}}</a></li>
 
 {% if paginator.has_next %}
-		<li><a href="{% url page paginator.next_page_number %}">Next</a></li>
+		<li><a href="{% url 'page' paginator.next_page_number %}">Next</a></li>
 {% endif %}
-		<li><a href="{% url page paginator.paginator.num_pages %}">Last</a></li>
+		<li><a href="{% url 'page' paginator.paginator.num_pages %}">Last</a></li>
 	</ul>
 </div>
 {% endif %}

@@ -24,9 +24,9 @@
 
 		{% for ap in photo.albumphoto_set.all %}
 		<ul class="breadcrumb">
-			<li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
-			<li><a href="{% url album-index %}">Albums</a> <span class="divider">/</span></li>
-			<li><a href="{% url album ap.album.id %}">{{ap.album.title}}</a></li>
+			<li><a href="{% url 'index' %}">Auratus</a> <span class="divider">/</span></li>
+			<li><a href="{% url 'album-index' %}">Albums</a> <span class="divider">/</span></li>
+			<li><a href="{% url 'album' ap.album.id %}">{{ap.album.title}}</a></li>
 		</ul>
 		{% endfor %}
 		{% endif %}
@@ -34,7 +34,7 @@
 		{% if photo.phototag_set.count %}
 		<h3>Tags</h3>
 			{% for pt in photo.phototag_set.all %}
-			<a href="{% url tag pt.tag.name %}" class="label">{{pt.tag.name}}</a>
+			<a href="{% url 'tag' pt.tag.name %}" class="label">{{pt.tag.name}}</a>
 			{% endfor %}
 		{% endif %}
 

@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 import os.path
 admin.autodiscover()
 import staticmedia
@@ -56,8 +56,7 @@ urlpatterns = patterns(
         view='auratus.main.views.add_album',
         name='add-album'),
     (r'^admin/', include(admin.site.urls)),
-    (r'^stats/', direct_to_template,
-     {'template': 'stats.html'}),
+    (r'^stats/', TemplateView.as_view(template_name="stats.html")),
     (r'^site_media/(?P<path>.*)$',
      'django.views.static.serve',
      {'document_root': site_media_root}),

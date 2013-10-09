@@ -6,8 +6,8 @@
 {% block content %}
 
 <ul class="breadcrumb">
-  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
-  <li><a href="{% url album-index %}">Albums</a> <span class="divider">/</span></li>
+  <li><a href="{% url 'index' %}">Auratus</a> <span class="divider">/</span></li>
+  <li><a href="{% url 'album'-index %}">Albums</a> <span class="divider">/</span></li>
 	<li class="active">{{album.title}}</li>
 </ul>
 
@@ -26,13 +26,13 @@
 {{album.description|markdown}}
 {% endif %}
 
-<a href="{% url album-slideshow album.id %}">slideshow</a>
+<a href="{% url 'album-slideshow' album.id %}">slideshow</a>
 
 <div id="thumbnails">
 	{% for ap in album.albumphoto_set.all %}
 	{% with ap.photo as photo %}
 	<div class="album-thumbnail">
-    <a href="{% url photo photo.id %}">
+    <a href="{% url 'photo' photo.id %}">
 			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
 					 alt="{{photo.title}}"/>
     </a>

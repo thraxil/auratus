@@ -4,7 +4,7 @@
 {% block content %}
 
 <ul class="breadcrumb">
-  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
+  <li><a href="{% url 'index' %}">Auratus</a> <span class="divider">/</span></li>
   <li class="active">Albums</li>
 </ul>
 
@@ -13,7 +13,7 @@
 	<div class="span1">
 	</div>
 	<div class="span6 thumbnail">
-		<a href="{% url album album.id %}">
+		<a href="{% url 'album' album.id %}">
 			{% with album.albumphoto_set.all.0.photo as photo %}
 			<img src="http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/600w/{{photo.id}}.{{photo.extension}}"
 					 alt="{{album.title}}"/>
@@ -21,7 +21,7 @@
 		</a>
 	</div>
 	<div class="span4">
-		<a href="{% url album album.id %}"><h4>{{album.title}}</h4></a>
+		<a href="{% url 'album' album.id %}"><h4>{{album.title}}</h4></a>
 	</div>
 
 </div>

@@ -32,12 +32,12 @@
     <div class="navbar-inner">
       <div class="container">
         <ul class="nav">
-          <li><a class="brand" href="{% url index %}">Auratus</a></li>
-					<li><a href="{% url album-index %}">Albums</a></li>
+          <li><a class="brand" href="{% url 'index' %}">Auratus</a></li>
+					<li><a href="{% url 'album-index' %}">Albums</a></li>
 {% if not request.is_anonymous %}
-					<li><a href="{% url add-album %}">+</a></li>
+					<li><a href="{% url 'add-album' %}">+</a></li>
 {% endif %}
-					<li><a href="{% url tag-index %}">Tags</a></li>
+					<li><a href="{% url 'tag-index' %}">Tags</a></li>
           {% block topnavbarleftitems %}{% endblock %}
         </ul>
 
@@ -61,7 +61,7 @@
   <div class="container" id="outer-container">
 {% block masthead %}
     <header class="subhead hidden-phone" id="masthead">
-      <h1><a href="{% url index %}" title="auratus">auratus</a></h1>
+      <h1><a href="{% url 'index' %}" title="auratus">auratus</a></h1>
     </header>
 {% endblock %}
 

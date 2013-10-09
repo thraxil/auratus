@@ -3,11 +3,11 @@
 
 {% block content %}
 <ul class="breadcrumb">
-  <li><a href="{% url index %}">Auratus</a> <span class="divider">/</span></li>
+  <li><a href="{% url 'index' %}">Auratus</a> <span class="divider">/</span></li>
   <li class="active">Tags</li>
 </ul>
 
-<p>{% for tag in tags %}<a href="{% url tag tag.name %}" class="label">{{tag.name}}</a>
+<p>{% for tag in tags %}<a href="{% url 'tag' tag.name %}" class="label">{{tag.name}}</a>
 {% endfor %}
 </p>
 {% endblock %}
