@@ -44,7 +44,6 @@ SITE_ID = 1
 USE_I18N = False
 MEDIA_ROOT = "/var/www/auratus/uploads/"
 MEDIA_URL = '/uploads/'
-STATIC_URL = '/media/'
 SECRET_KEY = '3c328c05-b6c6-43da-a2db-9dab5b25383b'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -55,6 +54,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.request',
+    'django.core.context_processors.static',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,7 +81,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.markup',
-    'staticmedia',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
     'django_nose',
@@ -97,6 +98,16 @@ LETTUCE_APPS = (
     'auratus.main',
 )
 
+STATIC_URL = "/media/"
+STATICFILES_DIRS = (
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "../media/")),
+)
+STATIC_ROOT = ""
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 
 STATSD_CLIENT = 'statsd.client'
 STATSD_PREFIX = 'auratus'
@@ -120,7 +131,7 @@ STATICMEDIA_MOUNTS = (
     ('/sitemedia', 'sitemedia'),
 )
 
-COMPRESS_URL = "/site_media/"
+COMPRESS_URL = "/media/"
 COMPRESS_ROOT = "media/"
 
 # WIND settings

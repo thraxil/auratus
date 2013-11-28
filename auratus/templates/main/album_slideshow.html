@@ -4,14 +4,14 @@
 <head>
 <title>Album: {{album.title}}</title>
 
-		<link rel="stylesheet" href="/site_media/js/buildinternet-supersized-8b88de8/slideshow/css/supersized.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="/site_media/js/buildinternet-supersized-8b88de8/slideshow/theme/supersized.shutter.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/css/supersized.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/theme/supersized.shutter.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="http://buildinternet.com/project/supersized/css/bsa-demo.css" type="text/css" media="screen"/>
 
-  <script src="/site_media/js/jquery-1.7.2.min.js"></script>		
-		<script type="text/javascript" src="/site_media/js/buildinternet-supersized-8b88de8/slideshow/js/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="/site_media/js/buildinternet-supersized-8b88de8/slideshow/js/supersized.3.2.7.min.js"></script>
-		<script type="text/javascript" src="/site_media/js/buildinternet-supersized-8b88de8/slideshow/theme/supersized.shutter.min.js"></script>
+  <script src="{{STATIC_URL}}js/jquery-1.7.2.min.js"></script>		
+		<script type="text/javascript" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/js/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/theme/supersized.shutter.min.js"></script>
 
 </head>
 <body>
@@ -44,7 +44,7 @@
 	<div id="controls-wrapper" class="load-item">
 		<div id="controls">
 
-			<a id="play-button"><img id="pauseplay" src="/site_media/js/buildinternet-supersized-8b88de8/slideshow/img/pause.png"/></a>
+			<a id="play-button"><img id="pauseplay" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/img/pause.png"/></a>
 
 			<!--Slide counter-->
 			<div id="slidecounter">
@@ -55,7 +55,7 @@
 			<div id="slidecaption"></div>
 
 			<!--Thumb Tray button-->
-			<a id="tray-button"><img id="tray-arrow" src="/site_media/js/buildinternet-supersized-8b88de8/slideshow/img/button-tray-up.png"/></a>
+			<a id="tray-button"><img id="tray-arrow" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/img/button-tray-up.png"/></a>
 
 			<!--Navigation-->
 			<ul id="slide-list"></ul>

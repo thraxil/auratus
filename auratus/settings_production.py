@@ -15,6 +15,9 @@ COMPRESS_ROOT = "/var/www/auratus/auratus/media/"
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
+STATICFILES_DIRS = ()
+STATIC_ROOT = "/var/www/auratus/auratus/media/"
+
 try:
     from local_settings import *
 except ImportError:
