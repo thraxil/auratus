@@ -86,7 +86,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'south',
     'django_nose',
-#    'compressor',
     'django_statsd',
     'bootstrapform',
     'lettuce.django',
@@ -106,7 +105,6 @@ STATIC_ROOT = ""
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'compressor.finders.CompressorFinder',
 )
 
 STATSD_CLIENT = 'statsd.client'
