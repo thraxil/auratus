@@ -132,19 +132,6 @@ STATICMEDIA_MOUNTS = (
 COMPRESS_URL = "/media/"
 COMPRESS_ROOT = "media/"
 
-# WIND settings
-
-AUTHENTICATION_BACKENDS = ('djangowind.auth.WindAuthBackend',
-                           'django.contrib.auth.backends.ModelBackend',)
-WIND_BASE = "https://wind.columbia.edu/"
-WIND_SERVICE = "cnmtl_full_np"
-WIND_PROFILE_HANDLERS = []
-WIND_AFFIL_HANDLERS = ['djangowind.auth.AffilGroupMapper',
-                       'djangowind.auth.StaffMapper',
-                       'djangowind.auth.SuperuserMapper']
-WIND_STAFF_MAPPER_GROUPS = []
-WIND_SUPERUSER_MAPPER_GROUPS = ['anp8']
-
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True
 
