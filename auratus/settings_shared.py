@@ -80,7 +80,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'django.contrib.markup',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
@@ -88,9 +87,9 @@ INSTALLED_APPS = [
     'django_nose',
     'django_statsd',
     'bootstrapform',
-    'lettuce.django',
     'auratus.main',
     'gunicorn',
+    'django_markwhat',
 ]
 
 LETTUCE_APPS = (
@@ -111,7 +110,6 @@ STATSD_CLIENT = 'statsd.client'
 STATSD_PREFIX = 'auratus'
 STATSD_HOST = '127.0.0.1'
 STATSD_PORT = 8125
-STATSD_PATCHES = ['django_statsd.patches.db', ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 if 'test' in sys.argv:
