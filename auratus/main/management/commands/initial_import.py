@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from django.utils.simplejson import loads
+from django.utils.json import loads
 from auratus.main.models import Photo, Album, Tag, AlbumPhoto
 import os
 from datetime import datetime
