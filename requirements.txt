@@ -1,4 +1,4 @@
-Django==1.6.9
+Django==1.7.3
 Markdown==2.3.1
 uuid==1.30
 psycopg2==2.5.1
@@ -20,15 +20,14 @@ requests==0.13.3
 pep8==1.4
 pyflakes==0.5.0
 flake8==1.7.0
-gunicorn==0.17.4
+gunicorn==19.1.1
 pycrypto==2.6
 paramiko==1.10.1
 Fabric==1.6.1
 django-indexer==0.2.1
 django-templatetag-sugar==0.1
 django-paging==0.2.2
-South==1.0.2
-django-annoying==0.7.6
+django-annoying==0.8.0
 django-nose==1.2
 django-appconf==0.4.1
 django_compressor==1.1.1
