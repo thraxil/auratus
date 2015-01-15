@@ -19,6 +19,7 @@ selenium==2.44.0
 requests==2.5.0
 pep8==1.5.7
 pyflakes==0.8.1
+mccabe==0.2.1
 flake8==2.3.0
 gunicorn==19.1.1
 pycrypto==2.6.1
