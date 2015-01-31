@@ -52,7 +52,7 @@ deploy: ./ve/bin/python validate test flake8
 	git push
 	./ve/bin/fab deploy
 
-deploy: ./ve/bin/python validate test flake8
+travis_deploy: ./ve/bin/python validate test flake8
 	./ve/bin/fab deploy -i auratus_rsa
 
 # run this one the very first time you check
