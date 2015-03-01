@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'django_markwhat',
     'compressor',
+    'storages',
 ]
 
 LETTUCE_APPS = (

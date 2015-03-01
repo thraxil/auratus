@@ -20,6 +20,21 @@ TEMPLATE_DEBUG = DEBUG
 
 STATICFILES_DIRS = ()
 
+AWS_STORAGE_BUCKET_NAME = "thraxil-auratus-static-prod"
+AWS_PRELOAD_METADATA = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'cacheds3storage.MediaRootS3BotoStorage'
+S3_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_URL = STATIC_URL
+DEFAULT_FILE_STORAGE = 'cacheds3storage.MediaRootS3BotoStorage'
+MEDIA_URL = S3_URL + '/media/'
+COMPRESS_STORAGE = 'cacheds3storage.CompressorS3BotoStorage'
+AWS_QUERYSTRING_AUTH = False
+
 
 if 'migrate' not in sys.argv:
     INSTALLED_APPS = INSTALLED_APPS + [
