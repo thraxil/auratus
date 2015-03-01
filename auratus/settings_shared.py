@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'auratus.main',
     'gunicorn',
     'django_markwhat',
+    'compressor',
 ]
 
 LETTUCE_APPS = (
@@ -103,6 +104,7 @@ STATIC_ROOT = ""
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 STATSD_CLIENT = 'statsd.client'
@@ -128,6 +130,11 @@ STATICMEDIA_MOUNTS = (
 
 COMPRESS_URL = "/media/"
 COMPRESS_ROOT = "media/"
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True

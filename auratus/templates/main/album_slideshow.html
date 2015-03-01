@@ -1,18 +1,22 @@
 {% load markup %}
+{% load compress %}
 
 <html>
 <head>
 <title>Album: {{album.title}}</title>
 
+{% compress css %}
 		<link rel="stylesheet" href="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/css/supersized.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/theme/supersized.shutter.css" type="text/css" media="screen" />
+{% endcompress %}
 		<link rel="stylesheet" href="http://buildinternet.com/project/supersized/css/bsa-demo.css" type="text/css" media="screen"/>
 
+{% compress js %}
   <script src="{{STATIC_URL}}js/jquery-1.7.2.min.js"></script>		
 		<script type="text/javascript" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/js/jquery.easing.min.js"></script>
 		<script type="text/javascript" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/js/supersized.3.2.7.min.js"></script>
 		<script type="text/javascript" src="{{STATIC_URL}}js/buildinternet-supersized-8b88de8/slideshow/theme/supersized.shutter.min.js"></script>
-
+{% endcompress %}
 </head>
 <body>
 
