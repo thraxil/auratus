@@ -21,7 +21,7 @@ pep8==1.5.7
 pyflakes==0.8.1
 mccabe==0.2.1
 flake8==2.3.0
-gunicorn==19.1.1
+gunicorn==19.3.0
 pycrypto==2.6.1
 paramiko==1.15.2
 ecdsa==0.11
