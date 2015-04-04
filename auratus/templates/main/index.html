@@ -36,7 +36,7 @@
 	{% for photo in photos %}
   <div class="album-thumbnail">
     <a href="{% url 'photo' photo.id %}">
-			<img src="https://d2f33fmhbh7cs9.cloudfront.net/image/{{photo.reticulum_key}}/350w/{{photo.id}}.{{photo.extension}}"
+			<img src="https://d2f33fmhbh7cs9.cloudfront.net/image/{{photo.reticulum_key}}/350w/{{photo.id}}{{photo.extension}}"
 					 alt="{{photo.title}}"/>
     </a>
   </div>
