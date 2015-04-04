@@ -107,7 +107,7 @@ $.supersized({
 		slides:  	[			// Slideshow Images
 	{% for ap in album.albumphoto_set.all %}
 	{% with ap.photo as photo %}
-    {image : 'http://reticulum.thraxil.org/image/{{photo.reticulum_key}}/' + bestSize() + '/{{photo.id}}.{{photo.extension}}', title : '{{photo.title}}'}{% if not forloop.last %},{% endif %}
+    {image : 'https://d2f33fmhbh7cs9.cloudfront.net/image/{{photo.reticulum_key}}/' + bestSize() + '/{{photo.id}}.{{photo.extension}}', title : '{{photo.title}}'}{% if not forloop.last %},{% endif %}
 	{% endwith %}
 {% endfor %}
 ],
