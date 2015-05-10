@@ -23,6 +23,16 @@ validate: ./ve/bin/python
 shell: ./ve/bin/python
 	$(MANAGE) shell_plus
 
+build:
+	docker build -t thraxil/auratus .
+
+deploy: flake8 test build
+	docker push thraxil/auratus
+	ssh arctic.thraxil.org docker pull thraxil/auratus
+	ssh arctic.thraxil.org sudo /sbin/restart auratus
+	ssh cobra.thraxil.org docker pull thraxil/auratus
+	ssh cobra.thraxil.org sudo /sbin/restart auratus
+
 clean:
 	rm -rf ve
 	rm -rf media/CACHE
@@ -50,13 +60,6 @@ collectstatic: ./ve/bin/python validate
 
 compress: ./ve/bin/python validate
 	$(MANAGE) compress --settings=$(APP).settings_production
-
-deploy: ./ve/bin/python validate test flake8
-	git push
-	./ve/bin/fab deploy
-
-travis_deploy: ./ve/bin/python validate test flake8
-	./ve/bin/fab deploy -i auratus_rsa
 
 # run this one the very first time you check
 # this out on a new machine to set up dev
