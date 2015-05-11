@@ -26,13 +26,6 @@ shell: ./ve/bin/python
 build:
 	docker build -t thraxil/auratus .
 
-deploy: flake8 test build
-	docker push thraxil/auratus
-	ssh arctic.thraxil.org docker pull thraxil/auratus
-	ssh arctic.thraxil.org sudo /sbin/restart auratus
-	ssh cobra.thraxil.org docker pull thraxil/auratus
-	ssh cobra.thraxil.org sudo /sbin/restart auratus
-
 clean:
 	rm -rf ve
 	rm -rf media/CACHE
