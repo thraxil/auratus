@@ -32,11 +32,6 @@ if 'test' in sys.argv:
         }
     }
 
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-package=auratus',
-]
-
 USE_TZ = True
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
@@ -83,7 +78,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django_nose',
     'django_statsd',
     'bootstrapform',
     'auratus.main',
@@ -113,7 +107,7 @@ STATSD_PREFIX = 'auratus'
 STATSD_HOST = '127.0.0.1'
 STATSD_PORT = 8125
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 if 'test' in sys.argv:
     DATABASE_ENGINE = 'sqlite3'
 SOUTH_TESTS_MIGRATE = False
