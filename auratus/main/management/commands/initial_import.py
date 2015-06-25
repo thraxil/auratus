@@ -25,11 +25,11 @@ class Command(BaseCommand):
             images = set([filename for filename in os.listdir(directory)
                           if filename.endswith("jpg")])
             image_json = [filename for filename in os.listdir(directory)
-                          if filename.endswith("json")
-                          and not filename.startswith("set_")]
+                          if filename.endswith("json") and
+                          not filename.startswith("set_")]
             sets_json = [filename for filename in os.listdir(directory)
-                         if filename.endswith("json")
-                         and filename.startswith("set_")]
+                         if filename.endswith("json") and
+                         filename.startswith("set_")]
             for filename in image_json:
                 print "Image", filename
 

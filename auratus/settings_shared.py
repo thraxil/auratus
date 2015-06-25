@@ -59,7 +59,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
 )
 
 ROOT_URLCONF = 'auratus.urls'
