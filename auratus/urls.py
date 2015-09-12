@@ -11,6 +11,7 @@ urlpatterns = patterns(
     url(r'^$',
         view='auratus.main.views.index',
         name='index'),
+    (r'smoketest/', include('smoketest.urls')),
     url(r'^page/(?P<page>\d+)/$',
         view='auratus.main.views.index',
         name='page'),

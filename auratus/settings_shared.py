@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'django_markwhat',
     'compressor',
     'storages',
+    'smoketest',
 ]
 
 LETTUCE_APPS = (
