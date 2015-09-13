@@ -14,5 +14,3 @@ INSTALLED_APPS += [  # noqa
 ALLOWED_HOSTS += ['.thraxil.org']  # noqa
 
 RETICULUM_BASE = "http://behemoth.ccnmtl.columbia.edu:14001/"
-
-
