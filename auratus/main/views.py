@@ -1,16 +1,14 @@
-from annoying.decorators import render_to
 from auratus.main.models import Photo, Album, Tag, AlbumPhoto
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from json import loads
 import os
 import requests
 
 
-@render_to('main/index.html')
 def index(request, page=1):
     photo_list = Photo.objects.all()
     p = Paginator(photo_list, 50)
@@ -20,41 +18,41 @@ def index(request, page=1):
         photos = p.page(1)
     except EmptyPage:
         photos = p.page(p.num_pages)
-    return dict(photos=photos.object_list,
-                paginator=photos)
+    return render(
+        request,
+        'main/index.html',
+        dict(photos=photos.object_list,
+             paginator=photos))
 
 
-@render_to('main/albums.html')
 def albums(request):
-    return dict(albums=Album.objects.all())
+    return render(request, 'main/albums.html',
+                  dict(albums=Album.objects.all()))
 
 
-@render_to('main/tags.html')
 def tags(request):
-    return dict(tags=Tag.objects.all())
+    return render(request, 'main/tags.html',
+                  dict(tags=Tag.objects.all()))
 
 
-@render_to('main/photo.html')
 def photo(request, id):
     p = get_object_or_404(Photo, pk=id)
-    return dict(photo=p)
+    return render(request, 'main/photo.html', dict(photo=p))
 
 
-@render_to('main/album.html')
 def album(request, id):
     a = get_object_or_404(Album, pk=id)
-    return dict(album=a)
+    return render(request, 'main/album.html', dict(album=a))
 
 
 @login_required
-@render_to('main/add_album.html')
 def add_album(request):
     if request.method == 'POST':
         a = Album.objects.create(
             title=request.POST.get('title', 'no title'),
             description=request.POST.get('description', ''))
         return HttpResponseRedirect(reverse('album', args=(a.id,)))
-    return dict()
+    return render(request, 'main/add_album.html', dict())
 
 
 def add_photo(request, id):
@@ -85,13 +83,11 @@ def add_photo(request, id):
         return HttpResponse("no image")
 
 
-@render_to('main/album_slideshow.html')
 def album_slideshow(request, id):
     a = get_object_or_404(Album, pk=id)
-    return dict(album=a)
+    return render(request, 'main/album_slideshow.html', dict(album=a))
 
 
-@render_to('main/tag.html')
 def tag(request, tag):
     t = get_object_or_404(Tag, name=tag)
-    return dict(tag=t)
+    return render(request, 'main/tag.html', dict(tag=t))
