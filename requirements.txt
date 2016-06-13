@@ -3,7 +3,6 @@ Markdown==2.6.6
 uuid==1.30
 psycopg2==2.6.1
 coverage==4.1
-versiontools==1.9.1
 statsd==3.2.1
 lxml==3.6.0
 tornado==4.3
