@@ -1,3 +1,5 @@
+import django.views.static
+
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
@@ -25,6 +27,6 @@ urlpatterns = [
     url(r'^add_album/$', view=add_album, name='add-album'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^stats/', TemplateView.as_view(template_name="stats.html")),
-    url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve',
+    url(r'^uploads/(?P<path>.*)$', django.views.static.serve,
         {'document_root': settings.MEDIA_ROOT}),
 ]
