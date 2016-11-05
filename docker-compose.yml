@@ -1,0 +1,15 @@
+db:
+  image: postgres
+web:
+  build: .
+  command: python manage.py runserver 0.0.0.0:8000 --settings=auratus.settings_compose
+  environment:
+    - SETTINGS=settings_compose
+    - DJANGO_SETTINGS_MODULE=auratus.settings_compose
+    - SECRET_KEY=docker-compose-secr3t
+  volumes:
+    - .:/app/
+  ports:
+    - "8000:8000"
+  links:
+    - db

@@ -19,4 +19,13 @@ docker-test: build
 	-e DB_USER=postgres \
 	$(REPO)/$(APP)
 
+compose-run:
+	docker-compose up
+
+compose-migrate:
+	docker-compose run web python manage.py migrate --settings=$(APP).settings_compose
+
+compose-createsuperuser:
+	docker-compose run web python manage.py createsuperuser --settings=$(APP).settings_compose
+
 .PHONY: build docker-pg docker-test
