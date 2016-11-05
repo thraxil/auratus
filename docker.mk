@@ -23,9 +23,9 @@ compose-run:
 	docker-compose up
 
 compose-migrate:
-	docker-compose run web python manage.py migrate --settings=$(APP).settings_compose
+	docker-compose run web migrate
 
 compose-createsuperuser:
-	docker-compose run web python manage.py createsuperuser --settings=$(APP).settings_compose
+	docker-compose run web manage createsuperuser
 
 .PHONY: build docker-pg docker-test
