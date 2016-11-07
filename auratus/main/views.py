@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.views.generic import View
 from itsdangerous import URLSafeSerializer
 import os
 
@@ -79,6 +80,36 @@ def add_photo(request, id):
         return HttpResponseRedirect(reverse('album', args=(a.id,)))
     else:
         return HttpResponse("no image")
+
+
+class BulkAddPhotos(View):
+    def post(self, request, id, token):
+        a = get_object_or_404(Album, pk=id)
+        s = URLSafeSerializer(settings.SECRET_KEY)
+        d = s.loads(token)
+        if d['album_id'] != id:
+            return HttpResponse("bad token")
+
+        if request.FILES.get('image', None):
+            original_filename = request.FILES['image'].name
+            extension = os.path.splitext(original_filename)[1].lower()
+            if extension == ".jpeg":
+                extension = ".jpg"
+            if extension not in [".jpg", ".png", ".gif"]:
+                return HttpResponse("unsupported image format")
+            title = original_filename
+            rhash = settings.UPLOADER.upload(request.FILES['image'])
+            p = Photo.objects.create(
+                title=title,
+                reticulum_key=rhash,
+                extension=extension,
+                description='')
+            AlbumPhoto.objects.create(
+                album=a,
+                photo=p)
+            return HttpResponse("ok")
+        else:
+            return HttpResponse("no image")
 
 
 def album_slideshow(request, id):

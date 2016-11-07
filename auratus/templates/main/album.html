@@ -19,8 +19,11 @@
 <input type="submit" value="add image" />
 </form>
 
-<p>Commandline uploads to:</p>
-<pre>/bulk/{{album.id}}/{{token}}/</pre>
+<p>Commandline uploads to: <tt><b>{% url 'bulk-add' album.id token %}</b></tt></p>
+<pre>
+export AURATUS_BASE=https://auratus.thraxil.org
+for i in `ls *.jpg`; do curl -F "image=@$i" ${AURATUS_BASE}{% url 'bulk-add' album.id token %}; done
+</pre>
     
 {% endif %}
 

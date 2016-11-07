@@ -6,7 +6,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from auratus.main.views import (
     index, photo, albums, album, add_photo, album_slideshow, tags,
-    tag, add_album,
+    tag, add_album, BulkAddPhotos,
 )
 admin.autodiscover()
 
@@ -20,6 +20,8 @@ urlpatterns = [
     url(r'^album/$', view=albums, name='album-index'),
     url(r'^album/(?P<id>\d+)/$', view=album, name='album'),
     url(r'^album/(?P<id>\d+)/add_photo/$', view=add_photo, name='add-photo'),
+    url(r'^album/(?P<id>\d+)/bulk/(?P<token>[^\/]+)/$',
+        BulkAddPhotos.as_view(), name='bulk-add'),
     url(r'^album/(?P<id>\d+)/slideshow/$', view=album_slideshow,
         name='album-slideshow'),
     url(r'^tag/$', view=tags, name='tag-index'),
