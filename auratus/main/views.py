@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from itsdangerous import URLSafeSerializer
 import os
 
 
@@ -41,7 +42,9 @@ def photo(request, id):
 
 def album(request, id):
     a = get_object_or_404(Album, pk=id)
-    return render(request, 'main/album.html', dict(album=a))
+    serializer = URLSafeSerializer(settings.SECRET_KEY)
+    token = serializer.dumps({'album_id': id})
+    return render(request, 'main/album.html', dict(album=a, token=token))
 
 
 @login_required
