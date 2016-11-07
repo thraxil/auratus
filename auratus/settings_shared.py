@@ -1,5 +1,7 @@
 # Django settings for auratus project.
+import mimetypes
 import os.path
+import requests
 
 from thraxilsettings.shared import common
 
@@ -34,4 +36,15 @@ INSTALLED_APPS += [  # noqa
 
 ALLOWED_HOSTS += ['.thraxil.org']  # noqa
 
-RETICULUM_BASE = "http://reticulum.thraxil.org/"
+RETICULUM_UPLOAD = "https://reticulum.thraxil.org"
+RETICULUM_PUBLIC = "https://d2f33fmhbh7cs9.cloudfront.net"
+
+
+class ReticulumUploader(object):
+    def upload(self, f):
+        content_type = mimetypes.guess_type(f.name)[0]
+        files = {'image': (f.name, f, content_type)}
+        r = requests.post(RETICULUM_UPLOAD + "/", files=files, verify=False)
+        return r.json()["hash"]
+
+UPLOADER = ReticulumUploader()

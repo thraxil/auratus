@@ -1,12 +1,11 @@
 from auratus.main.models import Photo, Album, Tag, AlbumPhoto
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from json import loads
 import os
-import requests
 
 
 def index(request, page=1):
@@ -60,19 +59,15 @@ def add_photo(request, id):
     if request.FILES.get('image', None):
         original_filename = request.FILES['image'].name
         extension = os.path.splitext(original_filename)[1].lower()
-        print original_filename
         if extension == ".jpeg":
             extension = ".jpg"
         if extension not in [".jpg", ".png", ".gif"]:
             return HttpResponse("unsupported image format")
         title = request.POST.get('title', original_filename)
-        files = {
-            'image': ("image%s" % extension, request.FILES['image'])
-        }
-        r = requests.post("http://reticulum.thraxil.org/", files=files)
+        rhash = settings.UPLOADER.upload(request.FILES['image'])
         p = Photo.objects.create(
             title=title,
-            reticulum_key=loads(r.text)["hash"],
+            reticulum_key=rhash,
             extension=extension,
             description=request.POST.get('description', ''))
         AlbumPhoto.objects.create(
