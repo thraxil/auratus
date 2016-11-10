@@ -42,11 +42,17 @@ class PhotoView(DetailView):
     context_object_name = 'photo'
 
 
-def album(request, id):
-    a = get_object_or_404(Album, pk=id)
-    serializer = URLSafeSerializer(settings.SECRET_KEY)
-    token = serializer.dumps({'album_id': id})
-    return render(request, 'main/album.html', dict(album=a, token=token))
+class AlbumView(DetailView):
+    template_name = 'main/album.html'
+    model = Album
+
+    def get_context_data(self, **kwargs):
+        context = super(AlbumView, self).get_context_data(**kwargs)
+        serializer = URLSafeSerializer(settings.SECRET_KEY)
+        token = serializer.dumps({'album_id': self.object.id})
+        context['token'] = token
+        context['album'] = self.object
+        return context
 
 
 class AddAlbum(View):
