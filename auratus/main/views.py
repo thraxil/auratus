@@ -129,6 +129,10 @@ class AlbumSlideshow(DetailView):
     context_object_name = 'album'
 
 
-def tag(request, tag):
-    t = get_object_or_404(Tag, name=tag)
-    return render(request, 'main/tag.html', dict(tag=t))
+class TagView(DetailView):
+    model = Tag
+    template_name = 'main/tag.html'
+    context_object_name = 'tag'
+
+    def get_object(self):
+        return Tag.objects.get(name=self.kwargs['slug'])
