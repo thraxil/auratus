@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.views.generic import TemplateView
 from auratus.main.views import (
-    index, PhotoView, albums, AlbumView, AddPhoto, AlbumSlideshow, tags,
+    index, PhotoView, AlbumsView, AlbumView, AddPhoto, AlbumSlideshow, tags,
     TagView, AddAlbum, BulkAddPhotos,
 )
 admin.autodiscover()
@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'smoketest/', include('smoketest.urls')),
     url(r'^page/(?P<page>\d+)/$', view=index, name='page'),
     url(r'^photo/(?P<pk>\d+)/$', PhotoView.as_view(), name='photo'),
-    url(r'^album/$', view=albums, name='album-index'),
+    url(r'^album/$', AlbumsView.as_view(), name='album-index'),
     url(r'^album/(?P<pk>\d+)/$', AlbumView.as_view(), name='album'),
     url(r'^album/(?P<id>\d+)/add_photo/$',
         view=login_required(AddPhoto.as_view()),

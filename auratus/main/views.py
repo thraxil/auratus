@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import View
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from itsdangerous import URLSafeSerializer
 import os
 
@@ -26,9 +27,10 @@ def index(request, page=1):
              paginator=photos))
 
 
-def albums(request):
-    return render(request, 'main/albums.html',
-                  dict(albums=Album.objects.all()))
+class AlbumsView(ListView):
+    template_name = 'main/albums.html'
+    model = Album
+    context_object_name = 'albums'
 
 
 def tags(request):
