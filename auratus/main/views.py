@@ -11,20 +11,21 @@ from itsdangerous import URLSafeSerializer
 import os
 
 
-def index(request, page=1):
-    photo_list = Photo.objects.all()
-    p = Paginator(photo_list, 50)
-    try:
-        photos = p.page(page)
-    except PageNotAnInteger:
-        photos = p.page(1)
-    except EmptyPage:
-        photos = p.page(p.num_pages)
-    return render(
-        request,
-        'main/index.html',
-        dict(photos=photos.object_list,
-             paginator=photos))
+class Index(View):
+    def get(self, request, page=1):
+        photo_list = Photo.objects.all()
+        p = Paginator(photo_list, 50)
+        try:
+            photos = p.page(page)
+        except PageNotAnInteger:
+            photos = p.page(1)
+        except EmptyPage:
+            photos = p.page(p.num_pages)
+        return render(
+            request,
+            'main/index.html',
+            dict(photos=photos.object_list,
+                 paginator=photos))
 
 
 class AlbumsView(ListView):
