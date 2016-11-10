@@ -33,9 +33,10 @@ class AlbumsView(ListView):
     context_object_name = 'albums'
 
 
-def tags(request):
-    return render(request, 'main/tags.html',
-                  dict(tags=Tag.objects.all()))
+class TagsView(ListView):
+    template_name = 'main/tags.html'
+    model = Tag
+    context_object_name = 'tags'
 
 
 class PhotoView(DetailView):
