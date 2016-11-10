@@ -123,9 +123,10 @@ class BulkAddPhotos(View):
             return HttpResponse("no image")
 
 
-def album_slideshow(request, id):
-    a = get_object_or_404(Album, pk=id)
-    return render(request, 'main/album_slideshow.html', dict(album=a))
+class AlbumSlideshow(DetailView):
+    model = Album
+    template_name = 'main/album_slideshow.html'
+    context_object_name = 'album'
 
 
 def tag(request, tag):
