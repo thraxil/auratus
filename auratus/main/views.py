@@ -1,6 +1,5 @@
 from auratus.main.models import Photo, Album, Tag, AlbumPhoto
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
@@ -48,7 +47,6 @@ def album(request, id):
     return render(request, 'main/album.html', dict(album=a, token=token))
 
 
-@login_required
 def add_album(request):
     if request.method == 'POST':
         a = Album.objects.create(
