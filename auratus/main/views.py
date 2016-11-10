@@ -47,13 +47,17 @@ def album(request, id):
     return render(request, 'main/album.html', dict(album=a, token=token))
 
 
-def add_album(request):
-    if request.method == 'POST':
+class AddAlbum(View):
+    template_filename = 'main/add_album.html'
+
+    def post(self, request):
         a = Album.objects.create(
             title=request.POST.get('title', 'no title'),
             description=request.POST.get('description', ''))
         return HttpResponseRedirect(reverse('album', args=(a.id,)))
-    return render(request, 'main/add_album.html', dict())
+
+    def get(self, request):
+        return render(request, self.template_filename, dict())
 
 
 def add_photo(request, id):
