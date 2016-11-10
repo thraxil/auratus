@@ -1,10 +1,10 @@
 from auratus.main.models import Photo, Album, Tag, AlbumPhoto
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import View
 from itsdangerous import URLSafeSerializer
 import os
