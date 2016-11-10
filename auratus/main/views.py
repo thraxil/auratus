@@ -60,28 +60,29 @@ class AddAlbum(View):
         return render(request, self.template_filename, dict())
 
 
-def add_photo(request, id):
-    a = get_object_or_404(Album, pk=id)
-    if request.FILES.get('image', None):
-        original_filename = request.FILES['image'].name
-        extension = os.path.splitext(original_filename)[1].lower()
-        if extension == ".jpeg":
-            extension = ".jpg"
-        if extension not in [".jpg", ".png", ".gif"]:
-            return HttpResponse("unsupported image format")
-        title = request.POST.get('title', original_filename)
-        rhash = settings.UPLOADER.upload(request.FILES['image'])
-        p = Photo.objects.create(
-            title=title,
-            reticulum_key=rhash,
-            extension=extension,
-            description=request.POST.get('description', ''))
-        AlbumPhoto.objects.create(
-            album=a,
-            photo=p)
-        return HttpResponseRedirect(reverse('album', args=(a.id,)))
-    else:
-        return HttpResponse("no image")
+class AddPhoto(View):
+    def post(self, request, id):
+        a = get_object_or_404(Album, pk=id)
+        if request.FILES.get('image', None):
+            original_filename = request.FILES['image'].name
+            extension = os.path.splitext(original_filename)[1].lower()
+            if extension == ".jpeg":
+                extension = ".jpg"
+            if extension not in [".jpg", ".png", ".gif"]:
+                return HttpResponse("unsupported image format")
+            title = request.POST.get('title', original_filename)
+            rhash = settings.UPLOADER.upload(request.FILES['image'])
+            p = Photo.objects.create(
+                title=title,
+                reticulum_key=rhash,
+                extension=extension,
+                description=request.POST.get('description', ''))
+            AlbumPhoto.objects.create(
+                album=a,
+                photo=p)
+            return HttpResponseRedirect(reverse('album', args=(a.id,)))
+        else:
+            return HttpResponse("no image")
 
 
 class BulkAddPhotos(View):
