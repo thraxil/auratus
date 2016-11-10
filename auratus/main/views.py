@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import View
+from django.views.generic.detail import DetailView
 from itsdangerous import URLSafeSerializer
 import os
 
@@ -35,9 +36,10 @@ def tags(request):
                   dict(tags=Tag.objects.all()))
 
 
-def photo(request, id):
-    p = get_object_or_404(Photo, pk=id)
-    return render(request, 'main/photo.html', dict(photo=p))
+class PhotoView(DetailView):
+    template_name = 'main/photo.html'
+    model = Photo
+    context_object_name = 'photo'
 
 
 def album(request, id):
