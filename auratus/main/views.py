@@ -102,7 +102,7 @@ class BulkAddPhotos(View):
         a = get_object_or_404(Album, pk=id)
         s = URLSafeSerializer(settings.SECRET_KEY)
         d = s.loads(token)
-        if d['album_id'] != id:
+        if str(d['album_id']) != id:
             return HttpResponse("bad token")
 
         if request.FILES.get('image', None):
