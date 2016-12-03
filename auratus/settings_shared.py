@@ -47,4 +47,5 @@ class ReticulumUploader(object):
         r = requests.post(RETICULUM_UPLOAD + "/", files=files, verify=False)
         return r.json()["hash"]
 
+
 UPLOADER = ReticulumUploader()
