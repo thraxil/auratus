@@ -2,7 +2,7 @@ Django==1.11
 Markdown==2.6.8
 uuid==1.30
 psycopg2==2.7.1
-coverage==4.3.4
+coverage==4.4
 statsd==3.2.1
 lxml==3.7.3
 tornado==4.5
