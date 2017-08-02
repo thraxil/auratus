@@ -18,7 +18,7 @@ idna==2.5
 urllib3==1.22
 certifi==2017.7.27.1
 
-requests==2.18.2
+requests==2.18.3
 pep8==1.7.0
 pyflakes==1.5.0
 mccabe==0.6.1
