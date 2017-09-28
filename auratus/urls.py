@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.views.generic import TemplateView
-from auratus.main.views import (
+from .main.views import (
     Index, PhotoView, AlbumsView, AlbumView, AddPhoto, AlbumSlideshow,
     TagsView, TagView, AddAlbum, BulkAddPhotos,
 )

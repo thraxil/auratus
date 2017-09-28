@@ -1,4 +1,4 @@
-from auratus.main.models import Photo, Album, Tag, AlbumPhoto
+from .models import Photo, Album, Tag, AlbumPhoto
 from django.conf import settings
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.urlresolvers import reverse
