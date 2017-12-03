@@ -32,8 +32,8 @@ class Album(models.Model):
 
 
 class AlbumPhoto(models.Model):
-    album = models.ForeignKey(Album)
-    photo = models.ForeignKey(Photo)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
 
     class Meta:
         order_with_respect_to = 'album'
@@ -47,5 +47,5 @@ class Tag(models.Model):
 
 
 class PhotoTag(models.Model):
-    photo = models.ForeignKey(Photo)
-    tag = models.ForeignKey(Tag)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)

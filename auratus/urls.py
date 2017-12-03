@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^tag/(?P<slug>\w+)/$', TagView.as_view(), name='tag'),
     url(r'^add_album/$', view=login_required(AddAlbum.as_view()),
         name='add-album'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^stats/', TemplateView.as_view(template_name="stats.html")),
     url(r'^uploads/(?P<path>.*)$', django.views.static.serve,
         {'document_root': settings.MEDIA_ROOT}),
