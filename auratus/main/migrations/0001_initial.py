@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             name='AlbumPhoto',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('album', models.ForeignKey(to='main.Album')),
+                ('album', models.ForeignKey(to='main.Album', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
             name='PhotoTag',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('photo', models.ForeignKey(to='main.Photo')),
+                ('photo', models.ForeignKey(to='main.Photo', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -77,13 +77,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='phototag',
             name='tag',
-            field=models.ForeignKey(to='main.Tag'),
+            field=models.ForeignKey(to='main.Tag', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='albumphoto',
             name='photo',
-            field=models.ForeignKey(to='main.Photo'),
+            field=models.ForeignKey(to='main.Photo', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AlterOrderWithRespectTo(
