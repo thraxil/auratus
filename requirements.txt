@@ -2,7 +2,7 @@ Django==2.0.2
 Markdown==2.6.11
 
 psycopg2==2.7.4
-coverage==4.5
+coverage==4.5.1
 statsd==3.2.2
 lxml==4.1.1
 
