@@ -32,6 +32,7 @@ TEMPLATES = [
 INSTALLED_APPS += [  # noqa
     'bootstrapform',
     'auratus.main',
+    'raven.contrib.django.raven_compat',
 ]
 
 ALLOWED_HOSTS += ['.thraxil.org']  # noqa

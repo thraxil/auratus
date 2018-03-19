@@ -29,6 +29,7 @@ boto==2.48.0
 python-dateutil==2.7.0
 sqlparse==0.2.4
 opbeat==3.6.1
+raven==6.6.0
 itsdangerous==0.24
 pytz==2018.3
 
