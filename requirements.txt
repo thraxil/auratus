@@ -7,7 +7,7 @@ statsd==3.2.2
 lxml==4.2.4
 
 cssselect==1.0.3
-fuzzywuzzy==0.16.0
+fuzzywuzzy==0.17.0
 sure==1.4.11
 
 chardet==3.0.4
