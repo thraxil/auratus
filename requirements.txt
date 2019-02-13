@@ -1,10 +1,10 @@
-Django==2.1.5
+Django==2.1.7
 Markdown==3.0.1
 
-psycopg2==2.7.6.1
+psycopg2==2.7.7
 coverage==4.5.2
 statsd==3.3.0
-lxml==4.3.0
+lxml==4.3.1
 
 cssselect==1.0.3
 fuzzywuzzy==0.17.0
@@ -17,16 +17,16 @@ certifi==2018.11.29
 
 requests==2.21.0
 pep8==1.7.1
-pyflakes==2.0.0
+pyflakes==2.1.0
 mccabe==0.6.1
-pycodestyle==2.4.0
+pycodestyle==2.5.0
 enum34==1.1.6
-configparser==3.5.0
-flake8==3.6.0
+configparser==3.7.1
+flake8==3.7.5
 gunicorn==19.9.0
 six==1.12.0
 boto==2.49.0
-python-dateutil==2.7.5
+python-dateutil==2.8.0
 sqlparse==0.2.4
 raven==6.10.0
 
@@ -48,5 +48,5 @@ django-smoketest==1.1.0
 django-debug-toolbar==1.11
 django-waffle==0.15.1
 django-jenkins==0.110.0
-django-extensions==2.1.4
+django-extensions==2.1.5
 thraxilsettings==3.1.0
