@@ -4,7 +4,7 @@ Markdown==2.6.11
 psycopg2==2.7.7
 coverage==4.5.2
 statsd==3.3.0
-lxml==4.3.0
+lxml==4.3.2
 
 cssselect==1.0.3
 fuzzywuzzy==0.17.0
