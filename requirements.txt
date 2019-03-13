@@ -3,9 +3,10 @@ Django==2.1.7
 Markdown==3.0.1
 
 psycopg2==2.7.7
-coverage==4.5.2
+coverage==4.5.3
+
 statsd==3.3.0
-lxml==4.3.0
+lxml==4.3.2
 
 cssselect==1.0.3
 fuzzywuzzy==0.17.0
@@ -18,24 +19,24 @@ certifi==2019.3.9
 
 requests==2.21.0
 pep8==1.7.1
-pyflakes==2.1.0
+pyflakes==2.1.1
 mccabe==0.6.1
-pycodestyle==2.4.0
+pycodestyle==2.5.0
 enum34==1.1.6
-configparser==3.7.1
+configparser==3.7.3
 flake8==3.6.0
 gunicorn==19.9.0
 six==1.12.0
 boto==2.49.0
 python-dateutil==2.8.0
-sqlparse==0.2.4
+sqlparse==0.3.0
 raven==6.10.0
 
 pytz==2018.9
 
 itsdangerous==1.1.0
 
-django-appconf==1.0.2
+django-appconf==1.0.3
 django_compressor==2.2
 django-statsd-mozilla==0.4.0
 django-bootstrap-form==3.4
@@ -49,5 +50,5 @@ django-smoketest==1.1.0
 django-debug-toolbar==1.11
 django-waffle==0.15.1
 django-jenkins==0.110.0
-django-extensions==2.1.4
+django-extensions==2.1.6
 thraxilsettings==3.1.0
