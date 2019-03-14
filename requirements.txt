@@ -1,8 +1,10 @@
+
 Django==2.1.7
 Markdown==3.0.1
 
 psycopg2==2.7.7
 coverage==4.5.3
+
 statsd==3.3.0
 lxml==4.3.2
 
@@ -21,8 +23,11 @@ pyflakes==2.1.1
 mccabe==0.6.1
 pycodestyle==2.5.0
 enum34==1.1.6
-configparser==3.8.0
+
 flake8==3.7.7
+
+configparser==3.8.0
+
 gunicorn==19.9.0
 six==1.12.0
 boto==2.49.0
