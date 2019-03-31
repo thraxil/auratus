@@ -11,7 +11,7 @@
 	<li class="active">{{album.title}}</li>
 </ul>
 
-{% if not request.user.is_anonymous %}
+{% if request.user and not request.user.is_anonymous %}
 <form action="add_photo/" method="post" enctype="multipart/form-data">
 <input type="file" name="image" /><br />
 <input type="text" name="title" placeholder="title" /><br />
