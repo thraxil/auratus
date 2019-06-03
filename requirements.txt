@@ -40,7 +40,7 @@ pytz==2019.1
 itsdangerous==1.1.0
 
 django-appconf==1.0.3
-django_compressor==2.2
+django_compressor==2.3
 django-statsd-mozilla==0.4.0
 django-bootstrap-form==3.4
 
