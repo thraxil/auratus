@@ -53,5 +53,5 @@ django-smoketest==1.1.0
 django-debug-toolbar==1.11
 django-waffle==0.16.0
 django-jenkins==0.110.0
-django-extensions==2.1.6
+django-extensions==2.1.9
 thraxilsettings==3.1.1
