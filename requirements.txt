@@ -1,12 +1,12 @@
 
-Django==2.2.1
-Markdown==2.6.11 # pyup: <3.0
+Django==2.2.2
+Markdown==3.1.1 # pyup: <3.0
 
-psycopg2==2.8.2
+psycopg2==2.8.3
 coverage==4.5.3
 
 statsd==3.3.0
-lxml==4.3.3
+lxml==4.3.4
 
 cssselect==1.0.3
 fuzzywuzzy==0.17.0
@@ -14,10 +14,10 @@ sure==1.4.11
 
 chardet==3.0.4
 idna==2.8
-urllib3==1.25.2
+urllib3==1.25.3
 certifi==2019.3.9
 
-requests==2.21.0
+requests==2.22.0
 pep8==1.7.1
 pyflakes==2.1.1
 mccabe==0.6.1
@@ -26,7 +26,7 @@ enum34==1.1.6
 
 flake8==3.7.7
 
-configparser==3.7.4
+configparser==3.8.0
 
 gunicorn==19.9.0
 six==1.12.0
@@ -40,7 +40,7 @@ pytz==2019.1
 itsdangerous==1.1.0
 
 django-appconf==1.0.3
-django_compressor==2.2
+django-compressor==2.3
 django-statsd-mozilla==0.4.0
 django-bootstrap-form==3.4
 
@@ -53,5 +53,5 @@ django-smoketest==1.1.0
 django-debug-toolbar==1.11
 django-waffle==0.16.0
 django-jenkins==0.110.0
-django-extensions==2.1.6
+django-extensions==2.1.9
 thraxilsettings==3.1.1
