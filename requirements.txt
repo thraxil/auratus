@@ -6,7 +6,7 @@ psycopg2==2.8.3
 coverage==4.5.3
 
 statsd==3.3.0
-lxml==4.3.4
+lxml==4.3.5
 
 cssselect==1.0.3
 fuzzywuzzy==0.17.0
