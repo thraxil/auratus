@@ -9,4 +9,4 @@ jobs:
     - name: Build docker image
       uses: actions/docker/cli@master
       with:
-        args: build -t thraxil/auratus:{{ github.sha }} .
+        args: build -t thraxil/auratus:${{ github.sha }} .
