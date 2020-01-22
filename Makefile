@@ -3,4 +3,4 @@ APP=auratus
 
 include *.mk
 
-all: test
+all: flake8 test
