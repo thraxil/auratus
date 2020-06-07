@@ -15,7 +15,7 @@ sure==1.4.11
 chardet==3.0.4
 idna==2.9
 
-certifi==2020.4.5.1
+certifi==2020.4.5.2
 
 urllib3==1.25.9
 
