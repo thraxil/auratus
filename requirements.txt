@@ -60,4 +60,4 @@ asgiref==3.2.10
 
 django-jenkins==0.110.0
 django-extensions==3.0.9
-thraxilsettings==3.3.0
+thraxilsettings==3.3.1
