@@ -36,7 +36,7 @@ python-dateutil==2.8.1
 sqlparse==0.4.1
 raven==6.10.0
 
-pytz==2020.4
+pytz==2020.5
 
 itsdangerous==1.1.0
 
