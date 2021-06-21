@@ -10,7 +10,7 @@ lxml==4.6.3
 
 cssselect==1.1.0
 fuzzywuzzy==0.18.0
-sure==1.4.11
+sure==2.0.0
 
 chardet==4.0.0
 idna==3.2
