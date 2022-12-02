@@ -10,7 +10,7 @@ lxml==4.9.1
 cssselect==1.2.0
 fuzzywuzzy==0.18.0
 
-chardet==5.0.0
+chardet==5.1.0
 idna==3.4
 
 certifi==2022.9.24
