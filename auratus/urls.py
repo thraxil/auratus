@@ -1,6 +1,6 @@
 import django.views.static
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import include, re_path, url
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
@@ -13,7 +13,7 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    url(r"^accounts/", include("django.contrib.auth.urls")),
+    re_path(r"^accounts/", include("django.contrib.auth.urls")),
     url(r"^$", Index.as_view(), name="index"),
     url(r"smoketest/", include("smoketest.urls")),
     url(r"^page/(?P<page>\d+)/$", Index.as_view(), name="page"),

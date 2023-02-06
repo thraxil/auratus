@@ -7,7 +7,7 @@ kill_timeout = 5
 processes = []
 
 [env]
-  ALLOWED_HOSTS="auratus.thraxil.org,auratus.fly.dev"
+  ALLOWED_HOSTS="auratus.fly.dev"
   DB_USER="auratus_350gjxv7myxer9ql"
   DB_PORT="5432"
   DB_HOST="thraxil-postgres.internal"
