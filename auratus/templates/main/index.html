@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}{% if paginator %}{% ifequal paginator.number 1 %}Welcome{% else %}Page {{paginator.number}}{% endifequal %}{% endif %}{% endblock %}
+{% block title %}{% if paginator %}{% if paginator.number == 1 %}Welcome{% else %}Page {{paginator.number}}{% endif %}{% endif %}{% endblock %}
 
 {% block content %}
 
 {% if paginator %}
 
-{% ifequal paginator.number 1 %}
+{% if paginator.number == 1 %}
 <div class="hero-unit">
 	<h1>Auratus</h1>
 
@@ -14,7 +14,7 @@
 <a href="{% url 'tag-index' %}">by Tag</a>, search the
 	gallery [coming soon], or just scroll down and page through. </p>
 </div>
-{% endifequal %}
+{% endif %}
 
 <div class="pagination pagination-centered">
 	<ul>

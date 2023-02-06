@@ -17,5 +17,3 @@ locals().update(
         MIDDLEWARE=MIDDLEWARE,
     )
 )
-
-ALLOWED_HOSTS = [".thraxil.org", "auratus.fly.dev"]  # noqa
