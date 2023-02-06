@@ -7,6 +7,7 @@ class Photo(models.Model):
     taken = models.DateTimeField(null=True)
     modified = models.DateTimeField(auto_now=True)
     description = models.TextField(default="", blank=True, null=True)
+    description_html = models.TextField(default="", blank=True, null=True)
     views = models.IntegerField(default=0)
 
     # reticulum fields
@@ -28,6 +29,7 @@ class Album(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     description = models.TextField(default="")
+    description_html = models.TextField(default="", blank=True, null=True)
 
     class Meta:
         ordering = ["-created"]

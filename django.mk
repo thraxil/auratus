@@ -23,6 +23,9 @@ runserver: $(SENTINAL) check
 migrate: $(SENTINAL) check
 	$(MANAGE) migrate
 
+makemigrations: $(SENTINAL) check
+	$(MANAGE) makemigrations
+
 check: $(SENTINAL)
 	$(MANAGE) check
 
