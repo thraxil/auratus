@@ -34,7 +34,7 @@ INSTALLED_APPS += [  # noqa
     "auratus.main",
 ]
 
-ALLOWED_HOSTS += [".thraxil.org"]  # noqa
+ALLOWED_HOSTS += [".thraxil.org", "auratus.fly.dev"]  # noqa
 
 RETICULUM_UPLOAD = "https://reticulum.thraxil.org"
 RETICULUM_PUBLIC = "https://d2f33fmhbh7cs9.cloudfront.net"
