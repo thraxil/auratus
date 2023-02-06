@@ -1,9 +1,8 @@
 # flake8: noqa
 import os.path
 
-from thraxilsettings.docker import common
-
-from .settings_shared import *
+from .settings_shared import *  # isort:skip
+from thraxilsettings.docker import common  # isort:skip
 
 app = "auratus"
 base = os.path.dirname(__file__)
