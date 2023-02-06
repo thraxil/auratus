@@ -14,7 +14,9 @@ class Photo(models.Model):
     extension = models.CharField(max_length=256, default="jpg")
 
     class Meta:
-        ordering = ['-uploaded', ]
+        ordering = [
+            "-uploaded",
+        ]
 
     def add_tag(self, tag):
         t, created = Tag.objects.get_or_create(name=tag)
@@ -28,7 +30,7 @@ class Album(models.Model):
     description = models.TextField(default="")
 
     class Meta:
-        ordering = ['-created']
+        ordering = ["-created"]
 
 
 class AlbumPhoto(models.Model):
@@ -36,14 +38,16 @@ class AlbumPhoto(models.Model):
     photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
 
     class Meta:
-        order_with_respect_to = 'album'
+        order_with_respect_to = "album"
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=256, default="")
 
     class Meta:
-        ordering = ["name", ]
+        ordering = [
+            "name",
+        ]
 
 
 class PhotoTag(models.Model):
