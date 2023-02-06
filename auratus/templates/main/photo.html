@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load markup %}
 {% block title %}{{photo.title}}{% endblock %}
 
 {% block content %}
@@ -15,8 +14,8 @@
 		<p>Taken: {{photo.taken}}</p>
 		{% endif %}
 		<p>Uploaded: {{photo.uploaded}}</p>
-		{% if photo.description %}
-		<p>{{photo.description|markdown}}</p>
+		{% if photo.description_html %}
+		<p>{{photo.description_html|safe}}</p>
 		{% endif %}
 
 		{% if photo.albumphoto_set.count %}

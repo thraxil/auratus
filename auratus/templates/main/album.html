@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load markup %}
 
 {% block title %}Album: {{album.title}}{% endblock %}
 
@@ -29,8 +28,8 @@ for i in `ls *.jpg`; do curl -F "image=@$i" ${AURATUS_BASE}{% url 'bulk-add' alb
 
 
 
-{% if album.description %}
-{{album.description|markdown}}
+{% if album.description_html %}
+{{album.description_html|safe}}
 {% endif %}
 
 <a href="{% url 'album-slideshow' album.id %}">slideshow</a>
