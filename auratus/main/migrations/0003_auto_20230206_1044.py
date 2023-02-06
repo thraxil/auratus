@@ -10,7 +10,7 @@ def forwards(apps, schema_editor):
         album.description_html = markdown.markdown(album.description)
         album.save()
     Photo = apps.get_model('main', 'Photo')
-    for photo in Photo.objects.all():
+    for photo in Photo.objects.only('description', 'description_html').all():
         photo.description_html = markdown.markdown(photo.description)
         photo.save()
 
