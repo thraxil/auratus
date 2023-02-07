@@ -54,4 +54,4 @@ django-waffle==3.0.0
 asgiref==3.5.2
 
 django-extensions==3.2.1
-thraxilsettings==5.0.0
+thraxilsettings==5.1.0
