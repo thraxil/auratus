@@ -51,3 +51,5 @@ class ReticulumUploader(object):
 
 UPLOADER = ReticulumUploader()
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+CSRF_TRUSTED_ORIGINS = ["https://auratus.thraxil.org"]
